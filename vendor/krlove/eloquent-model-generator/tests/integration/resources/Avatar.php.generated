@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * @property integer $id
+ * @property integer $user_id
+ * @property string $path
+ * @property User $user
+ */
+class Avatar extends Model
+{
+    /**
+     * @var array
+     */
+    protected $fillable = ['user_id', 'path'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+}
